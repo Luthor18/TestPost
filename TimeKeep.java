@@ -1,16 +1,23 @@
 public class TimeKeep{
-	int count = 0;
-}
-/*public static void main(String[] args)
-{
-	while(0<1){ 
+	private int oneThousand = 0;
+	private int count = 0;
+	
+	public void AddSecond(){
 		try { 
-		Thread.sleep(1000); 
-		count ++; 
-		System.out.println(count);
-		} 
+			Thread.sleep(2);
+			oneThousand++;
+			if (oneThousand == 500){
+				count++;
+				System.out.print("\b\b\b\b"+count);
+				oneThousand = 0;
+			}
+		}
 		catch (InterruptedException e) { 
-		e.printStackTrace(); 
-		}	 
+			e.printStackTrace(); 
+		}
 	}
-}*/
+
+	public int GetTime(){
+		return count;
+	}	
+}
