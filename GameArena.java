@@ -14,7 +14,9 @@ import javafx.scene.layout.*;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
+
+
 
 /**
  * This class provides a simple window in which grahical objects can be drawn. 
@@ -27,7 +29,7 @@ import java.awt.event.WindowEvent;
  *
  * @author Joe Finney
  */
-public class GameArena 
+public class GameArena implements MouseMotionListener
 {
 	// Size of window
 	private int arenaWidth;
@@ -49,6 +51,11 @@ public class GameArena
 	private boolean down = false;
 	private boolean left = false;
 	private boolean right = false;
+	
+	// The mouse variables
+	private int mouseXPos;
+	private int mouseYPos;
+	
 
     // JavaFX containers
     private Scene scene;
@@ -72,10 +79,12 @@ public class GameArena
         window = new JFrame();
         window.setTitle("Let's Play!");
 
+
         // Create a JavaFX canvas as a Swing panel.
         jfxPanel = new JFXPanel();
         jfxPanel.setPreferredSize(new java.awt.Dimension(width, height));
-
+		jfxPanel.addMouseMotionListener(this);
+		
         window.setContentPane(jfxPanel);
         window.setResizable(false);
         window.pack();
@@ -385,4 +394,41 @@ public class GameArena
 	{
 		return right;
 	}
-}
+	
+	/** This is called when the mouse is moved .
+	* This only triggers when, simultaneously, no button is being pressed.
+	*/
+	
+	public void mouseMoved(MouseEvent e)
+	{
+		
+	}
+	
+	/** This is called when a mouse button is pressed and then dragged.
+	* The events within this will continue to be processed even if the mouse is released outside of the arena.
+	*/
+	public void mouseDragged(MouseEvent e)
+	{
+		
+	}
+	
+	/**
+	* Retrieves the mouse's x position.
+	*@return the mouse's x position as an integer.
+	*/
+	public int getMouseX(MouseEvent e)
+	{
+		mouseXPos = e.getX();
+		return mouseXPos;
+	}
+	
+	/**
+	* Retrieves the mouses's y position.
+	* @return the mouse's y position as an integer.
+	*/
+	public int getMouseY(MouseEvent e)
+	{
+		mouseYPos = e.getY();
+		return mouseYPos;
+	}
+
