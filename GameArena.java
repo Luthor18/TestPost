@@ -431,4 +431,5 @@ public class GameArena implements MouseMotionListener
 		mouseYPos = e.getY();
 		return mouseYPos;
 	}
+}
 
