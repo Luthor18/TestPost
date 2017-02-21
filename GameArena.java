@@ -401,7 +401,8 @@ public class GameArena implements MouseMotionListener
 	
 	public void mouseMoved(MouseEvent e)
 	{
-		
+		mouseXPos = e.getX();
+		mouseYPos = e.getY();
 	}
 	
 	/** This is called when a mouse button is pressed and then dragged.
@@ -416,9 +417,9 @@ public class GameArena implements MouseMotionListener
 	* Retrieves the mouse's x position.
 	*@return the mouse's x position as an integer.
 	*/
-	public int getMouseX(MouseEvent e)
+	public int getMouseX()
 	{
-		mouseXPos = e.getX();
+		
 		return mouseXPos;
 	}
 	
@@ -426,9 +427,9 @@ public class GameArena implements MouseMotionListener
 	* Retrieves the mouses's y position.
 	* @return the mouse's y position as an integer.
 	*/
-	public int getMouseY(MouseEvent e)
+	public int getMouseY()
 	{
-		mouseYPos = e.getY();
+		
 		return mouseYPos;
 	}
 }
